@@ -1,0 +1,21 @@
+{% extends "diarios/base.html" %} {% block content %}
+
+<div class="col-6 mx-auto mt-3">
+  <h1 class="text-center">Adicionar tópico</h1>
+
+  {% if messages %}
+  <!-- obrigado chatgpt -->
+  <ul class="messages text-center">
+    {% for message in messages %} {% if message.tags %}
+    <h3 class="{{ message.tags }}">{{ message }}</h3>
+    {% endif %} {% endfor %}
+  </ul>
+  {% endif %}
+
+  <form method="post" action="{% url 'novo_topico' %}">
+    {% csrf_token %} {{ form.as_p }}
+    <button class="btn btn-primary btn-lg w-100" type="submit">Adicionar</button>
+  </form>
+</div>
+
+{% endblock %}

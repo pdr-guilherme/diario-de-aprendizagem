@@ -1,0 +1,32 @@
+{% extends "diarios/base.html" %} {% block content %}
+<div class="text-center mx-auto mb-4 mt-3">
+  <h2>Entradas sobre {{ topico }}</h2>
+  <a href="{% url 'nova_entrada' topico.slug %}" class="btn btn-primary btn-lg w-50"
+    >Nova Entrada</a
+  >
+</div>
+{% for entrada in entradas %}
+
+<div class="card mb-4">
+  <div class="card-header">
+    <h3>{{ entrada.adicionada_em|date:"DATETIME_FORMAT" }}</h3>
+  </div>
+  <div class="card-body">
+    <h2 class="card-title">{{ entrada.titulo }}</h2>
+    <p class="card-text">{{ entrada.texto|linebreaks }}</p>
+
+    <a href="{% url 'ver_entrada' topico.slug entrada.id %}" class="btn btn-primary">Ver</a>
+    <a href="{% url 'editar_entrada' topico.slug entrada.id %}" class="btn btn-primary">Editar</a>
+    <a href="{% url 'apagar_entrada' topico.slug entrada.id %}" class="btn btn-danger">Apagar</a>
+  </div>
+</div>
+
+{% empty %}
+<h2 class="text-center mx-auto">Não há entradas registradas sobre {{ topico|lower }} ainda :(</h2>
+{% endfor %}
+
+<div class="text-center mx-auto mt-4">
+  <a href="{% url 'apagar_topico' topico.slug %}" class="btn btn-danger w-25">Apagar Tópico</a>
+</div>
+
+{% endblock %}

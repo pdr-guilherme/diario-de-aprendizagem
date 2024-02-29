@@ -1,0 +1,17 @@
+{% extends "diarios/base.html" %} {% block content %}
+<div class="card mb-4">
+  <div class="card-header">
+    <h3>{{ entrada.adicionada_em|date:"DATETIME_FORMAT" }}</h3>
+  </div>
+  <div class="card-body">
+    <h2 class="card-title">{{ entrada.titulo }}</h2>
+    <p class="card-text">{{ entrada.texto|linebreaks }}</p>
+
+    <!--misericordia-->
+    <a href="{% url 'editar_entrada' entrada.topico.slug entrada.id %}" class="btn btn-primary">Editar</a>
+    <a href="{% url 'apagar_entrada' entrada.topico.slug entrada.id %}" class="btn btn-danger">Apagar</a>
+  </div>
+</div>
+
+
+{% endblock %}

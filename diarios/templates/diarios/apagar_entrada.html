@@ -1,0 +1,26 @@
+{% extends "diarios/base.html" %} {% block content %}
+<div class="col-7 mx-auto mt-2">
+  <form method="post">
+    {% csrf_token %}
+    <h2 class="text-center">Você tem certeza que quer apagar a seguinte entrada?</h2>
+    <div class="card mb-4">
+      <div class="card-header">
+        <h3>{{ entrada.adicionada_em|date:"DATETIME_FORMAT" }}</h3>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">{{ entrada.titulo }}</h2>
+        <p class="card-text">{{ entrada.texto|linebreaks }}</p>
+      </div>
+    </div>
+    <!-- seboseira nam -->
+    <div class="text-center">
+      <div class="btn-group" role="group">
+        <button class="btn btn-danger w-50" type="submit">Sim</button>
+        <a class="btn btn-primary w-50" href="{{ topico.get_absolute_url }}"
+          >Não, me leve de volta</a
+        >
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

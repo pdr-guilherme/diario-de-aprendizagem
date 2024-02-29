@@ -1,0 +1,10 @@
+{% extends "diarios/base.html" %} {% block content %}
+<div class="mx-auto my-2 col-md-7">
+  <h1 class="text-center">Criar Conta</h1>
+  <form method="post" action="{% url 'criar_conta' %}">
+    {% csrf_token %} {{ form.as_p }}
+    <button class="btn btn-primary btn-lg w-100" value="submit">Criar Conta</button>
+  </form>
+  <p class="text-center fs-5">Já tem uma conta? <a href="{% url 'login' %}">Fazer Login</a></p>
+</div>
+{% endblock %}
