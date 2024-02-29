@@ -44,5 +44,3 @@ Para executar o Diário de Aprendizagem em seu ambiente local, siga estas instru
    http://127.0.0.1:8000/
    http://localhost:8000/
    ```
-
-Agora você pode começar a usar o Diário de Aprendizagem para registrar suas experiências de aprendizado, definir metas e acompanhar seu progresso!
