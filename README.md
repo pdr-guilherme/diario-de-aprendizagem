@@ -9,7 +9,7 @@ Para executar o Diário de Aprendizagem em seu ambiente local, siga estas instru
 1. **Clone o Repositório:**
 
    ```bash
-   git clone https://github.com/pedrogs07/diario-de-aprendizagem.git
+   git clone https://github.com/pdr-guilherme/diario-de-aprendizagem.git
    ```
 
 2. **Navegue até o Diretório:**
